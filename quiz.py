@@ -48,7 +48,7 @@ def choose_level():
 		if(choice == 1 or choice == 2):
 			return choice
 		else:
-			print('**Inalid choice. Please try again.')
+			print('**Invalid choice. Please try again.')
 
 
 def ask_question(number_of_operands, level):
@@ -154,7 +154,7 @@ def play_game():
 			question_count = question_count + 1
 
 		# Calculate accuracy and grade
-		print('GAVE OVER!!')
+		print('GAME OVER!!')
 		accuracy = (score / NUMBER_OF_QUESTIONS) * 100
 		print('Your accuracy is: ' + str(accuracy) + '%')
 

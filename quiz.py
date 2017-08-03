@@ -137,7 +137,13 @@ def play_game():
             question = ask_question(number_of_operands, level)
             print('Evaluate this expression: ' + question)
 
-            given_answer = int(input('Enter your answer: '))
+            try:
+                given_answer = int(input('Enter your answer: '))
+            except ValueError:
+                print("Invalid input. Skipping this question :/")
+                print('Current score: ' + str(score) + '\n')
+                question_count = question_count + 1
+                continue
 
             actual_answer = calculate_answer(question)
             print()

@@ -64,18 +64,18 @@ def ask_question(number_of_operands, level):
     for index in range(2 * number_of_operands - 1):
         
         # If index is odd, place an operand else place an operator
-        if(index % 2 != 0):
+        if index % 2 != 0:
             operator = generate_random_integer_in_range(0, 3)
-            if(operator == 0):
+            if operator == 0:
                 element = '+'
-            elif(operator == 1):
+            elif operator == 1:
                 element = '-'
-            elif(operator == 2):
+            elif operator == 2:
                 element = '*'
-            elif(operator == 3):
+            elif operator == 3:
                 element = '/'
         else:
-            if(level == 1):
+            if level == 1:
                 element = str(generate_random_integer_in_range(EASY_RANGE_MIN, EASY_RANGE_MAX))
             else:
                 element = str(generate_random_integer_in_range(HARD_RANGE_MIN, HARD_RANGE_MAX))
@@ -126,7 +126,7 @@ def play_game():
         score = 0
         question_count = 1
 
-        while(question_count <= NUMBER_OF_QUESTIONS):
+        while question_count <= NUMBER_OF_QUESTIONS:
 
             # Print question number
             print('Question no: ' + str(question_count))
@@ -149,7 +149,7 @@ def play_game():
             print()
 
             # Check if user's answer and actual answer match
-            if(given_answer == actual_answer):
+            if given_answer == actual_answer:
                 print('Correct! Nicely done, how do you do it so easily!!')
                 score = score + 1
             else:
@@ -164,9 +164,9 @@ def play_game():
         accuracy = (score / NUMBER_OF_QUESTIONS) * 100
         print('Your accuracy is: ' + str(accuracy) + '%')
 
-        if(accuracy >= 80):
+        if accuracy >= 80:
             print('Congratulations! You got grade \'AA\'')
-        elif(accuracy > 50):
+        elif accuracy > 50:
             print('Not bad, keep practising. You got grade \'A\'')
         else:
             print('You failed. You got grade \'B\' :(')
@@ -175,12 +175,12 @@ def play_game():
         # Prompt user if he wants to play again
         while True:
             is_playing_again = input('Would you like to play again? (y/n)')
-            if(is_playing_again == 'y' or is_playing_again == 'n'):
+            if is_playing_again == 'y' or is_playing_again == 'n':
                 break
             else: 
                 print('Invalid choice. Please try again')
 
-        if(is_playing_again == 'n'):
+        if is_playing_again == 'n':
             print('Have a nice day! Good bye :)')
             break
 

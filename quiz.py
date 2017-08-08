@@ -2,8 +2,7 @@
 
 
 """
-
-Arithmetic Quiz - A mini quiz on evaluating arithmetic mathematical expressions written using python. 
+Arithmetic Quiz - A mini quiz on evaluating arithmetic mathematical expressions written using python.
 
 author: Ashwani Gupta
 version: 0.1
@@ -41,7 +40,7 @@ def choose_level():
         print('How difficult do you want the questions to be?')
         print('> Press 1 for EASY or')
         print('> Press 2 for HARD\n')
-        
+
         choice = int(input('Enter your choice: '))
         print()
 
@@ -55,14 +54,14 @@ def ask_question(number_of_operands, level):
     """ (int, int) -> str
 
     Generate a question based on number of operands and given difficulty level. Return a string representation
-    of the question i.e. an arithmetic expression. The operands and operators is chosen randomly. 
+    of the question i.e. an arithmetic expression. The operands and operators is chosen randomly.
     """
 
     # Initialize question
     question = []
 
     for index in range(2 * number_of_operands - 1):
-        
+
         # If index is odd, place an operand else place an operator
         if index % 2 != 0:
             operator = generate_random_integer_in_range(0, 3)
@@ -108,7 +107,7 @@ def play_game():
     """
 
     while True:
-        
+
         os.system('clear')
         welcome_msg = """Welcome to Arithmetic Quiz.\n\nInstructions:\n=============\n\
     1. Choose a level of difficulty (easy or hard).\n\
@@ -177,7 +176,7 @@ def play_game():
             is_playing_again = input('Would you like to play again? (y/n)')
             if is_playing_again == 'y' or is_playing_again == 'n':
                 break
-            else: 
+            else:
                 print('Invalid choice. Please try again')
 
         if is_playing_again == 'n':

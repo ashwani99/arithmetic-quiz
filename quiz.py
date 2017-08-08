@@ -132,7 +132,7 @@ def play_game():
             print('----------------')
 
             # Generate a random arithmetic expression question
-            number_of_operands = generate_random_integer_in_range(MIN_OPERANDS, MAX_OPERANDS);
+            number_of_operands = generate_random_integer_in_range(MIN_OPERANDS, MAX_OPERANDS)
             question = ask_question(number_of_operands, level)
             print('Evaluate this expression: ' + question)
 

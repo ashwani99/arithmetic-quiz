@@ -22,13 +22,13 @@ EASY_RANGE_MAX = 20
 HARD_RANGE_MIN = 20
 HARD_RANGE_MAX = 100
 
-def generate_random_integer_in_range(min, max):
+def pick_random_integer(minimum, maximum):
     """ (int, int) -> int
 
-    Generate a random integer within range [min, max]
+    Generate a random integer within range [minimum, maximum]
     """
 
-    return random.randint(min, max)
+    return random.randint(minimum, maximum)
 
 
 def choose_level():
@@ -43,13 +43,16 @@ def choose_level():
         print('> Press 1 for EASY or')
         print('> Press 2 for HARD\n')
 
-        choice = int(input('Enter your choice: '))
-        print()
+        try:
+            choice = int(input('Enter your choice: '))
+            print()
 
-        if choice == 1 or choice == 2:
-            return choice
-        else:
+            if choice == 1 or choice == 2:
+                return choice
+
+        except ValueError:
             print('**Invalid choice. Please try again.')
+            print()
 
 
 def ask_question(number_of_operands, level):
@@ -67,7 +70,7 @@ def ask_question(number_of_operands, level):
 
         # If index is odd, place an operand else place an operator
         if index % 2 != 0:
-            operator = generate_random_integer_in_range(0, 3)
+            operator = pick_random_integer(0, 3)
             if operator == 0:
                 element = '+'
             elif operator == 1:
@@ -78,10 +81,10 @@ def ask_question(number_of_operands, level):
                 element = '/'
         else:
             if level == 1:
-                element = str(generate_random_integer_in_range(
+                element = str(pick_random_integer(
                 	EASY_RANGE_MIN, EASY_RANGE_MAX))
             else:
-                element = str(generate_random_integer_in_range(
+                element = str(pick_random_integer(
                 	HARD_RANGE_MIN, HARD_RANGE_MAX))
 
         question.append(element)
@@ -116,15 +119,16 @@ def play_game():
 
         os.system('clear')
         welcome_msg = """Welcome to Arithmetic Quiz.\n\n
-        Instructions:\n=============\n\
-    1.  Choose a level of difficulty (easy or hard).\n\
-    2.  Evaluate the given mathematical expression using your mind. 
-        You can use pen/pencil/paper.\n\
-    3.  Enter the answer you got. If it is correct, you will get points. 
-        There are total of ten questions. For each correct answer you will get 1 point.\n\
-    4.  You need to score more than 50% to pass the quiz.
-    5.  Lastly, please do not use any kind of calculator. 
-    	You cannot enjoy the quiz if you are cheating.\n\
+Instructions:\n
+=============\n
+    1.  Choose a level of difficulty (easy or hard).\n
+    2.  Evaluate the given mathematical expression using your mind.\
+ You can use pen/pencil/paper.\n
+    3.  Enter the answer you got. If it is correct, you will get points.\
+ There are total of ten questions. For each correct answer you will get 1 point.\n
+    4.  You need to score more than 50% to pass the quiz.\n
+    5.  Lastly, please do not use any kind of calculator.\
+ You cannot enjoy the quiz if you are cheating.\n
     6.  Let's begin the game. Enjoy :)"""
         print(welcome_msg)
         print()
@@ -142,7 +146,7 @@ def play_game():
             print('----------------')
 
             # Generate a random arithmetic expression question
-            number_of_operands = generate_random_integer_in_range(
+            number_of_operands = pick_random_integer(
             	MIN_OPERANDS, MAX_OPERANDS)
 
             question = ask_question(number_of_operands, level)

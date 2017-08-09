@@ -2,7 +2,8 @@
 
 
 """
-Arithmetic Quiz - A mini quiz on evaluating arithmetic mathematical expressions written using python.
+Arithmetic Quiz - A mini quiz on evaluating arithmetic mathematical expressions
+written using python.
 
 author: Ashwani Gupta
 version: 0.1
@@ -33,7 +34,8 @@ def generate_random_integer_in_range(min, max):
 def choose_level():
     """ None -> int
 
-    Ask the user's difficulty level choice. 1 signifies easy level and 2 signifies hard level
+    Ask the user's difficulty level choice. 1 signifies easy level
+    and 2 signifies hard level
     """
 
     while True:
@@ -44,7 +46,7 @@ def choose_level():
         choice = int(input('Enter your choice: '))
         print()
 
-        if(choice == 1 or choice == 2):
+        if choice == 1 or choice == 2:
             return choice
         else:
             print('**Invalid choice. Please try again.')
@@ -53,8 +55,9 @@ def choose_level():
 def ask_question(number_of_operands, level):
     """ (int, int) -> str
 
-    Generate a question based on number of operands and given difficulty level. Return a string representation
-    of the question i.e. an arithmetic expression. The operands and operators is chosen randomly.
+    Generate a question based on number of operands and given difficulty level.
+    Return a string representation of the question i.e. an arithmetic expression.
+    The operands and operators is chosen randomly.
     """
 
     # Initialize question
@@ -75,9 +78,11 @@ def ask_question(number_of_operands, level):
                 element = '/'
         else:
             if level == 1:
-                element = str(generate_random_integer_in_range(EASY_RANGE_MIN, EASY_RANGE_MAX))
+                element = str(generate_random_integer_in_range(
+                	EASY_RANGE_MIN, EASY_RANGE_MAX))
             else:
-                element = str(generate_random_integer_in_range(HARD_RANGE_MIN, HARD_RANGE_MAX))
+                element = str(generate_random_integer_in_range(
+                	HARD_RANGE_MIN, HARD_RANGE_MAX))
 
         question.append(element)
 
@@ -88,7 +93,8 @@ def ask_question(number_of_operands, level):
 def calculate_answer(question):
     """ str -> int
 
-    Calculate the answer of the arithmetic expression given as the question. Return the result as integer.
+    Calculate the answer of the arithmetic expression given as the question.
+    Return the result as integer.
     """
 
     # Replace single slash '/' with double slash '//' for integer division in python 3
@@ -109,13 +115,17 @@ def play_game():
     while True:
 
         os.system('clear')
-        welcome_msg = """Welcome to Arithmetic Quiz.\n\nInstructions:\n=============\n\
-    1. Choose a level of difficulty (easy or hard).\n\
-    2. Evaluate the given mathematical expression using your mind. You can use pen/pencil/paper.\n\
-    3. Enter the answer you got. If it is correct, you will get points. There are total of ten questions. For each correct answer you will get 1 point.\n\
-    4. You need to score more than 50% to pass the quiz.
-    5. Lastly, please do not use any kind of calculator. You cannot enjoy the quiz if you are cheating.\n\
-    6. Let's begin the game. Enjoy :)"""
+        welcome_msg = """Welcome to Arithmetic Quiz.\n\n
+        Instructions:\n=============\n\
+    1.  Choose a level of difficulty (easy or hard).\n\
+    2.  Evaluate the given mathematical expression using your mind. 
+        You can use pen/pencil/paper.\n\
+    3.  Enter the answer you got. If it is correct, you will get points. 
+        There are total of ten questions. For each correct answer you will get 1 point.\n\
+    4.  You need to score more than 50% to pass the quiz.
+    5.  Lastly, please do not use any kind of calculator. 
+    	You cannot enjoy the quiz if you are cheating.\n\
+    6.  Let's begin the game. Enjoy :)"""
         print(welcome_msg)
         print()
 
@@ -132,7 +142,9 @@ def play_game():
             print('----------------')
 
             # Generate a random arithmetic expression question
-            number_of_operands = generate_random_integer_in_range(MIN_OPERANDS, MAX_OPERANDS)
+            number_of_operands = generate_random_integer_in_range(
+            	MIN_OPERANDS, MAX_OPERANDS)
+
             question = ask_question(number_of_operands, level)
             print('Evaluate this expression: ' + question)
 
